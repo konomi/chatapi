@@ -34,8 +34,7 @@ if prompt := st.chat_input("What is up?"):
 if not openai.api_key.startswith('sk-'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
 else:
-#    for response in openai.ChatCompletion.create(
-    for response in client.chat.complentions.create(
+    for response in openai.ChatCompletion.create(
             model=st.session_state["openai_model"],
             messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
             stream=True,
